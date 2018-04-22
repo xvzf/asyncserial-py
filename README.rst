@@ -10,6 +10,11 @@ Asyncio wrapper for pyserial
    :target: https://pypi.org/project/asyncserial/
    :alt: Python Versions
 
+.. image:: https://readthedocs.org/projects/asyncserial/badge/?version=latest
+   :target: http://asyncserial.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+
 `asyncserial` is a a wrapper for the `pyserial` library providing an async interface based on `async def` and `await`.
 
 
@@ -23,7 +28,7 @@ Installation
 
 Documentation
 =============
-TODO
+https://asyncserial.readthedocs.io
 
 
 Examples
