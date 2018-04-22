@@ -2,7 +2,15 @@
 Asyncio wrapper for pyserial
 ============================
 
-`asyncserial` is a a wrapper for the `pyserial` library providing an async interface based on `async def ...` and `await`.
+.. image:: https://badge.fury.io/py/asyncserial.svg
+   :target: https://badge.fury.io/py/asyncserial
+   :alt: PyPI version
+
+.. image:: https://img.shields.io/pypi/pyversions/asyncserial.svg
+   :target: https://pypi.org/project/asyncserial/
+   :alt: Python Versions
+
+`asyncserial` is a a wrapper for the `pyserial` library providing an async interface based on `async def` and `await`.
 
 
 Installation
@@ -12,6 +20,7 @@ Installation
 
   pip install asyncserial
 
+
 Documentation
 =============
 TODO
@@ -19,24 +28,24 @@ TODO
 
 Examples
 ========
-
 .. code-block:: python
-  import asyncio
-  from asyncserial import Serial
 
-  loop = asyncio.get_event_loop()
+   import asyncio
+   from asyncserial import Serial
 
-  test_serial = Serial(loop, "/dev/ttyACM0", baudrate=115200)
+   loop = asyncio.get_event_loop()
 
-  async def test():
-      await test_serial.read() # Drop anything that was already received
-      while True:
-          line = await test_serial.readline() # Read a line
-          print("[+] Serial read: {}".format(line))
-          await asyncio.sleep(0) # Let's be a bit greedy, should be adjust to your needs
+   test_serial = Serial(loop, "/dev/ttyACM0", baudrate=115200)
+
+   async def test():
+       await test_serial.read() # Drop anything that was already received
+       while True:
+           line = await test_serial.readline() # Read a line
+           print("[+] Serial read: {}".format(line))
+           await asyncio.sleep(0) # Let's be a bit greedy, should be adjust to your needs
 
 
-  asyncio.ensure_future(test())
+   asyncio.ensure_future(test())
 
-  print("[+] Starting eventloop")
-  loop.run_forever()
+   print("[+] Starting eventloop")
+   loop.run_forever()
