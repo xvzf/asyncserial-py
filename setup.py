@@ -10,7 +10,7 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 
 setup(
     name="asyncserial",
-    version="0.1.0b1",
+    version="0.1.0b2",
     description="Asyncio wrapper for pyserial",
     long_description=long_description,
     url="https://github.com/xvzf/asyncserial-py",
