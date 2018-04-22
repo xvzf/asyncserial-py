@@ -21,8 +21,7 @@ Asyncio wrapper for pyserial
 Installation
 ============
 
-.. code-block sh
-
+.. code-block:: sh
   pip install asyncserial
 
 
