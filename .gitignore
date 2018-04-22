@@ -1,3 +1,7 @@
 dist/
 build/
+docs/_static/
+docs/_build/
 *.egg*/
+*/__pycache__/
+*.pyc

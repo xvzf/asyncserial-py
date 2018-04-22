@@ -3,16 +3,20 @@ import serial
 
 class Serial(object):
     """
-    aioserial is a simple wrapper for the pyserial library to provide async functionallity.
+    asyncserial is a simple wrapper for the pyserial library to provide async functionallity.
     It is transparent to the pyserial interface and supports all parameters.
+    You can e.g. create a connection by:
+
+    >>> test = Serial(loop, "/dev/ttyUSB0", baudrate=115200)`
+
+    :param loop: The main eventloop
+    :param args: Arguments passed through to serial.Serial()
+    :param kwargs: Keyword arguments passed through to serial.Serial()
     """
 
     def __init__(self, loop: asyncio.AbstractEventLoop, *args, **kwargs):
         """
         Initializes the async wrapper and Serial interface
-        :param loop: The main eventloop
-        :param *args: Arguments passed through to serial.Serial()
-        :param **kwargs: Keyword arguments passed through to serial.Serial()
         """
         self._loop                  = loop
         self._serial_instance       = serial.Serial(*args, **kwargs)
@@ -35,7 +39,8 @@ class Serial(object):
     def loop(self) -> asyncio.AbstractEventLoop:
         """
         Returns the eventloop
-        :return: Eventloop
+
+        :returns: Eventloop
         """
         return self._loop
 
@@ -44,7 +49,8 @@ class Serial(object):
     def is_open(self) -> bool:
         """
         Connection is open or closed
-        :return: True if the connection is open, false otherwise
+
+        :returns: True if the connection is open, false otherwise
         """
         return self._serial_instance.isOpen()
 
@@ -53,7 +59,8 @@ class Serial(object):
     def serial_instance(self) -> serial.Serial:
         """
         Returns the serial instance
-        :return: Serial instance
+
+        :returns: Serial instance
         """
         return self._serial_instance
     
@@ -62,7 +69,8 @@ class Serial(object):
     def out_waiting(self) -> int:
         """
         Returns the number of bytes which are in queue to get written
-        :return: Number of not yet written bytes
+
+        :returns: Number of not yet written bytes
         """
         return self._serial_instance.out_waiting
 
@@ -71,7 +79,8 @@ class Serial(object):
     def in_waiting(self) -> int:
         """
         Returns the length of the input queue
-        :return: Number of bytes available to be read
+
+        :returns: Number of bytes available to be read
         """
         return self._serial_instance.in_waiting
 
@@ -101,6 +110,7 @@ class Serial(object):
     async def write(self, bytes:bytes, await_blocking=False):
         """
         Writes a bytestring
+
         :param bytestring:      Write buffer
         :param await_blocking:  wait for everything to be written
         """
@@ -111,8 +121,9 @@ class Serial(object):
     async def read(self, bytecount=0) -> bytes:
         """
         Reads a given number of bytes
+
         :param bytecount: How many bytes to read, leave it at default to read everything that is available
-        :return: bytestring
+        :returns: bytestring
         """
         if bytecount < 1:
             bytecount = self.in_waiting or 1
@@ -133,10 +144,11 @@ class Serial(object):
                     return inbytes
     
 
-    async def readline(self):
+    async def readline(self) -> bytes:
         """
         Reads one line
-        :return: bytestring of the line
+
+        :returns: bytestring of the line
         """
         while True:
             line = self._serial_instance.readline()
