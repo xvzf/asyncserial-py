@@ -22,6 +22,7 @@ Installation
 ============
 
 .. code-block:: sh
+
   pip install asyncserial
 
 
