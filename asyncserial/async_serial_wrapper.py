@@ -1,13 +1,9 @@
-"""
-    :Filename:
-        async_serial_wrapper.py
-    :Authors:
-        Matthias Riegler <matthias@xvzf.tech>
-    :Version:
-        23.04.2018
-    :License:
-        Apache 2.0
-"""
+#   :Filename:
+#       async_serial_wrapper.py
+#   :Authors:
+#       Matthias Riegler <matthias@xvzf.tech>
+#   :License:
+#       Apache 2.0
 
 
 import asyncio
@@ -50,7 +46,7 @@ class Serial(AbstractAsyncWrapper):
     @property
     def is_open(self) -> bool:
         """
-        :returns: True if the connection is open, false otherwise
+        True if the connection is open, false otherwise
         """
         return self._serial_instance.isOpen()
 
@@ -58,7 +54,7 @@ class Serial(AbstractAsyncWrapper):
     @property
     def serial_instance(self) -> serial.Serial:
         """
-        :returns: Serial instance
+        Serial instance
         """
         return self._serial_instance
 
@@ -66,7 +62,7 @@ class Serial(AbstractAsyncWrapper):
     @property
     def out_waiting(self) -> int:
         """
-        :returns: Number of not yet written bytes
+        Number of not yet written bytes
         """
         return self._serial_instance.out_waiting
 
@@ -74,7 +70,7 @@ class Serial(AbstractAsyncWrapper):
     @property
     def in_waiting(self) -> int:
         """
-        :returns: Number of bytes available to be read
+        Number of bytes available to be read
         """
         return self._serial_instance.in_waiting
 

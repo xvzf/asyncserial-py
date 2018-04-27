@@ -1,4 +1,5 @@
 .vscode/
+venv/
 dist/
 build/
 docs/_static/
@@ -6,3 +7,5 @@ docs/_build/
 *.egg*/
 */__pycache__/
 *.pyc
+.pytest_cache
+.tox

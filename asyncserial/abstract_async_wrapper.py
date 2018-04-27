@@ -1,13 +1,9 @@
-"""
-    :Filename:
-        abstract_async_wrapper.oy
-    :Authors:
-        Matthias Riegler <matthias@xvzf.tech>
-    :Version:
-        23.04.2018
-    :License:
-        Apache 2.0
-"""
+#   :Filename:
+#       abstract_async_wrapper.oy
+#   :Authors:
+#       Matthias Riegler <matthias@xvzf.tech>
+#   :License:
+#       Apache 2.0
 
 
 import asyncio
@@ -44,7 +40,7 @@ class AbstractAsyncWrapper(ABC):
     @property
     def loop(self) -> asyncio.AbstractEventLoop:
         """
-        :returns: Eventloop
+        Eventloop
         """
         return self._loop
 
@@ -53,7 +49,7 @@ class AbstractAsyncWrapper(ABC):
     @abstractmethod
     def is_open(self) -> bool:
         """
-        :returns: True if the connection is open, false otherwise
+        True if the connection is open, false otherwise
         """
         pass
 
@@ -62,7 +58,7 @@ class AbstractAsyncWrapper(ABC):
     @abstractmethod
     def out_waiting(self) -> int:
         """
-        :returns: Number of not yet written bytes
+        Number of not yet written bytes
         """
         pass
 
@@ -71,7 +67,7 @@ class AbstractAsyncWrapper(ABC):
     @abstractmethod
     def in_waiting(self) -> int:
         """
-        :returns: Number of bytes available to be read
+        Number of bytes available to be read
         """
         pass
 

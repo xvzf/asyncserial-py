@@ -10,7 +10,7 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 
 setup(
     name="asyncserial",
-    version="0.1.0b3",
+    version="0.1.0",
     description="Asyncio wrapper for pyserial",
     long_description=long_description,
     url="https://github.com/xvzf/asyncserial-py",
@@ -39,11 +39,11 @@ setup(
     keywords="serial pyserial async asyncio",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
     install_requires=["pyserial"],
+    tests_require=['pytest', 'uvloop'],
 
-    # extras_require={  # Optional
-    #     "dev": ["check-manifest"],
-    #     "test": ["coverage"],
-    # },
+    extras_require={  # Optional
+        "uvloop support": ["uvloop"],
+    },
 
     project_urls={  # Optional
         "Bug Reports": "https://github.com/xvzf/asyncserial-py/issues",
