@@ -28,7 +28,7 @@ Installation
 
 Documentation
 =============
-https://asyncserial.readthedocs.io
+https://xvzf.tech/asyncserial
 
 
 Examples
