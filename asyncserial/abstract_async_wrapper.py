@@ -85,7 +85,7 @@ class AbstractAsyncWrapper(ABC):
         Closes the serial connection gratefully, flushes output buffer
         """
         await self.flush()
-        self.abort()
+        await self.abort()
 
 
     @abstractmethod
